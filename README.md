@@ -13,32 +13,32 @@
 ## Python Installation Management
 
 ### List all Python installations
-\`\`\`bash
+```bash
 py -0
-\`\`\`
+```
 **Output example:**
-\`\`\`
+```
 Installed Pythons found by py Launcher for Windows
  -3.8-64        C:\Python38\python.exe *
  -3.9-64        C:\Python39\python.exe
- -3.12-64       C:\Users\Toffee\AppData\Local\Programs\Python\Python312\python.exe
-\`\`\`
+ -3.12-64       C:\Users\XXX\AppData\Local\Programs\Python\Python312\python.exe
+```
 
 The `*` indicates the default Python version.
 
 ### Check current Python version
-\`\`\`bash
+```bash
 python --version
-\`\`\`
+```
 
 ### Check Python path
-\`\`\`bash
+```bash
 where python
-\`\`\`
+```
 
 ### Use a specific Python version
 
-\`\`\`bash
+```bash
 # Run a script with Python 3.12
 py -3.12 script.py
 
@@ -50,14 +50,14 @@ py -3.12
 
 # Use pip with specific Python version
 py -3.12 -m pip install package-name
-\`\`\`
+```
 
 ### Check Python path and version inside Python
-\`\`\`python
+```python
 import sys
 print(sys.executable)  # prints the path to the Python executable
 print(sys.version)     # prints the Python version
-\`\`\`
+```
 
 ---
 
@@ -89,13 +89,13 @@ A virtual environment is an isolated Python environment that allows you to:
 
 ### Step 1: Create a virtual environment
 
-\`\`\`bash
+```bash
 # Using default Python
 python -m venv .venv
 
 # Using specific Python version (recommended)
 py -3.12 -m venv .venv
-\`\`\`
+```
 
 **What this does:**
 - Creates a folder named `.venv` in your current directory
@@ -109,15 +109,15 @@ py -3.12 -m venv .venv
 
 ### Step 2: Activate the virtual environment
 
-\`\`\`bash
+```bash
 .venv\Scripts\activate
-\`\`\`
+```
 
 **After activation, your prompt will change:**
-\`\`\`bash
+```bash
 C:\codes\my-project> .venv\Scripts\activate
 (.venv) C:\codes\my-project>
-\`\`\`
+```
 
 The `(.venv)` prefix shows that the virtual environment is active.
 
@@ -125,7 +125,7 @@ The `(.venv)` prefix shows that the virtual environment is active.
 
 Once activated, any `python` or `pip` commands will use the virtual environment:
 
-\`\`\`bash
+```bash
 # Check which Python you're using (should point to .venv)
 where python
 
@@ -134,27 +134,27 @@ pip install requests
 
 # Run your scripts
 python script.py
-\`\`\`
+```
 
 ### Step 4: Deactivate the virtual environment
 
-\`\`\`bash
+```bash
 deactivate
-\`\`\`
+```
 
 Your prompt will return to normal:
-\`\`\`bash
+```bash
 (.venv) C:\codes\my-project> deactivate
 C:\codes\my-project>
-\`\`\`
+```
 
 ### Delete a virtual environment
 
 Simply delete the `.venv` folder:
 
-\`\`\`bash
+```bash
 rmdir /s .venv
-\`\`\`
+```
 
 Or delete it manually in File Explorer.
 
@@ -163,68 +163,68 @@ Or delete it manually in File Explorer.
 ## Package Management with pip
 
 ### Install a package
-\`\`\`bash
+```bash
 pip install package-name
 
 # Examples:
 pip install requests
 pip install pandas
 pip install numpy
-\`\`\`
+```
 
 ### Install a specific version
-\`\`\`bash
+```bash
 pip install package-name==1.2.3
 
 # Example:
 pip install requests==2.28.0
-\`\`\`
+```
 
 ### Install multiple packages
-\`\`\`bash
+```bash
 pip install requests pandas numpy matplotlib
-\`\`\`
+```
 
 ### Upgrade a package
-\`\`\`bash
+```bash
 pip install --upgrade package-name
 
 # Example:
 pip install --upgrade requests
-\`\`\`
+```
 
 ### Uninstall a package
-\`\`\`bash
+```bash
 pip uninstall package-name
 
 # Example:
 pip uninstall requests
-\`\`\`
+```
 
 ### List all installed packages
-\`\`\`bash
+```bash
 pip list
-\`\`\`
+```
 
 **Output example:**
-\`\`\`
+```
 Package    Version
 ---------- -------
 pip        23.0.1
 requests   2.28.2
 numpy      1.24.2
-\`\`\`
+```
 
 ### Show package information
-\`\`\`bash
+```bash
 pip show package-name
 
 # Example:
 pip show requests
-\`\`\`
+```
 
 **Output example:**
-\`\`\`
+```
 Name: requests
 Version: 2.28.2
 Summary: Python HTTP for Humans.
@@ -234,24 +234,24 @@ License: Apache 2.0
 Location: C:\codes\my-project\.venv\Lib\site-packages
 Requires: charset-normalizer, idna, urllib3, certifi
 Required-by:
-\`\`\`
+```
 
 ### Save installed packages to a file
-\`\`\`bash
+```bash
 pip freeze > requirements.txt
-\`\`\`
+```
 
 This creates a `requirements.txt` file with all installed packages and their versions:
-\`\`\`
+```
 requests==2.28.2
 numpy==1.24.2
 pandas==1.5.3
-\`\`\`
+```
 
 ### Install packages from requirements.txt
-\`\`\`bash
+```bash
 pip install -r requirements.txt
-\`\`\`
+```
 
 This installs all packages listed in `requirements.txt`.
 
@@ -261,7 +261,7 @@ This installs all packages listed in `requirements.txt`.
 
 ### Example 1: Starting a New Project
 
-\`\`\`bash
+```bash
 # 1. Create project directory
 mkdir my-project
 cd my-project
@@ -290,11 +290,11 @@ pip freeze > requirements.txt
 
 # 9. Deactivate when done
 deactivate
-\`\`\`
+```
 
 ### Example 2: Working on an Existing Project
 
-\`\`\`bash
+```bash
 # 1. Navigate to project directory
 cd existing-project
 
@@ -312,11 +312,11 @@ python main.py
 
 # 6. Deactivate when done
 deactivate
-\`\`\`
+```
 
 ### Example 3: Daily Workflow
 
-\`\`\`bash
+```bash
 # Morning: Start working
 cd my-project
 .venv\Scripts\activate
@@ -332,7 +332,7 @@ pip freeze > requirements.txt
 
 # Evening: Done for the day
 deactivate
-\`\`\`
+```
 
 ---
 
@@ -341,24 +341,24 @@ deactivate
 ### ✅ DO:
 
 1. **Always use virtual environments**
-   \`\`\`bash
+   ```bash
    # Create venv for every project
    py -3.12 -m venv .venv
-   \`\`\`
+   ```
 
 2. **Use specific Python versions**
-   \`\`\`bash
+   ```bash
    # Good
    py -3.12 -m venv .venv
 
    # Avoid
    python -m venv .venv
-   \`\`\`
+   ```
 
 3. **Keep requirements.txt updated**
-   \`\`\`bash
+   ```bash
    pip freeze > requirements.txt
-   \`\`\`
+   ```
 
 4. **Name your virtual environment `.venv`**
    - Standard convention
@@ -366,21 +366,21 @@ deactivate
    - Easy to add to `.gitignore`
 
 5. **Activate virtual environment before working**
-   \`\`\`bash
+   ```bash
    .venv\Scripts\activate
-   \`\`\`
+   ```
 
 ### ❌ DON'T:
 
 1. **Don't install packages globally**
-   \`\`\`bash
+   ```bash
    # Bad - installs globally
    pip install requests
 
    # Good - activate venv first
    .venv\Scripts\activate
    pip install requests
-   \`\`\`
+   ```
 
 2. **Don't commit virtual environments to Git**
    - Add `.venv/` to `.gitignore`
@@ -396,7 +396,7 @@ deactivate
 
 ### Recommended folder structure:
 
-\`\`\`
+```
 my-project/
 │
 ├── .venv/                  # Virtual environment (don't commit)
@@ -407,11 +407,11 @@ my-project/
 └── src/                  # Source code folder
     ├── __init__.py
     └── module.py
-\`\`\`
+```
 
 ### Example `.gitignore` for Python projects:
 
-\`\`\`gitignore
+```gitignore
 # Virtual environments
 .venv/
 venv/
@@ -429,22 +429,22 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
-\`\`\`
+```
 
 ---
 
 ## Quick Reference Cheat Sheet
 
 ### Python Launcher
-\`\`\`bash
+```bash
 py -0                          # List all Python installations
 py -3.12                       # Use Python 3.12
 py -3.12 script.py             # Run script with Python 3.12
 py -3.12 -m pip install pkg    # Install package with Python 3.12
-\`\`\`
+```
 
 ### Virtual Environment
-\`\`\`bash
+```bash
 # Create
 py -3.12 -m venv .venv
 
@@ -456,10 +456,10 @@ deactivate
 
 # Delete
 rmdir /s .venv
-\`\`\`
+```
 
 ### Package Management
-\`\`\`bash
+```bash
 pip install package-name              # Install package
 pip install package-name==1.2.3       # Install specific version
 pip install --upgrade package-name    # Upgrade package
@@ -468,15 +468,15 @@ pip list                              # List installed packages
 pip show package-name                 # Show package info
 pip freeze > requirements.txt         # Save dependencies
 pip install -r requirements.txt       # Install from requirements.txt
-\`\`\`
+```
 
 ### Check Environment
-\`\`\`bash
+```bash
 python --version         # Check Python version
 where python            # Check Python path
 pip list                # List installed packages
 pip show package-name   # Show package details
-\`\`\`
+```
 
 ---
 
@@ -491,16 +491,16 @@ pip show package-name   # Show package details
 ### Issue: Virtual environment not activating
 
 **Symptoms:**
-\`\`\`bash
+```bash
 C:\codes\my-project> .venv\Scripts\activate
 # No (.venv) prefix appears
-\`\`\`
+```
 
 **Solution:**
 Enable script execution in PowerShell:
-\`\`\`powershell
+```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-\`\`\`
+```
 
 Then try activating again.
 
@@ -513,50 +513,50 @@ Then try activating again.
 ### Issue: Wrong Python version in virtual environment
 
 **Problem:**
-\`\`\`bash
+```bash
 (.venv) C:\codes> python --version
 Python 3.8.10  # But you wanted 3.12!
-\`\`\`
+```
 
 **Solution:**
 Delete the virtual environment and recreate with specific version:
-\`\`\`bash
+```bash
 deactivate
 rmdir /s .venv
 py -3.12 -m venv .venv
 .venv\Scripts\activate
 python --version  # Should now show 3.12
-\`\`\`
+```
 
 ### Issue: Package not found after installation
 
 **Problem:**
-\`\`\`bash
+```bash
 pip install requests
 # Later...
 python script.py
 # ModuleNotFoundError: No module named 'requests'
-\`\`\`
+```
 
 **Solution:**
 Make sure virtual environment is activated:
-\`\`\`bash
+```bash
 .venv\Scripts\activate
 pip list  # Check if package is installed
 pip install requests  # Install again if needed
-\`\`\`
+```
 
 ### Issue: Multiple Python versions causing confusion
 
 **Solution:**
 Always use `py -3.12` to specify exact version:
-\`\`\`bash
+```bash
 # Check which Python versions you have
 py -0
 
 # Use specific version
 py -3.12 -m venv .venv
-\`\`\`
+```
 
 ---
 
@@ -565,7 +565,7 @@ py -3.12 -m venv .venv
 ### Scenario 1: Sharing your project with a teammate
 
 **You:**
-\`\`\`bash
+```bash
 # Save your dependencies
 pip freeze > requirements.txt
 
@@ -573,10 +573,10 @@ pip freeze > requirements.txt
 git add requirements.txt
 git commit -m "Add requirements"
 git push
-\`\`\`
+```
 
 **Your teammate:**
-\`\`\`bash
+```bash
 # Clone the project
 git clone <repository-url>
 cd project
@@ -592,11 +592,11 @@ pip install -r requirements.txt
 
 # Start working!
 python main.py
-\`\`\`
+```
 
 ### Scenario 2: Upgrading Python version for a project
 
-\`\`\`bash
+```bash
 # 1. Note your current packages
 pip freeze > old_requirements.txt
 
@@ -618,11 +618,11 @@ python main.py
 
 # 7. Update requirements.txt if needed
 pip freeze > requirements.txt
-\`\`\`
+```
 
 ### Scenario 3: Working on multiple projects
 
-\`\`\`bash
+```bash
 # Project 1
 cd C:\codes\project1
 .venv\Scripts\activate
@@ -634,7 +634,7 @@ cd C:\codes\project2
 .venv\Scripts\activate
 python app.py
 deactivate
-\`\`\`
+```
 
 Each project has its own isolated environment!
 
